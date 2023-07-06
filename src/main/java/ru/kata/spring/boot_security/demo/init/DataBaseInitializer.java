@@ -16,12 +16,13 @@ public class DataBaseInitializer {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private final BCryptPasswordEncoder encoder;
 
     @Autowired
-    public DataBaseInitializer(UserRepository userRepository, RoleRepository roleRepository) {
+    public DataBaseInitializer(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.encoder = encoder;
     }
 
     @PostConstruct
@@ -32,7 +33,8 @@ public class DataBaseInitializer {
         roleRepository.save(adminRole);
         roleRepository.save(userRole);
 
-        User adminUser = new User("admin", "admin", (byte) 35, "admin@mail.ru", encoder.encode("admin"));
+        String admin = "admin";
+        User adminUser = new User(admin, admin, (byte) 35, "admin@mail.ru", encoder.encode(admin));
         adminUser.setRoles(Set.of(adminRole, userRole));
         userRepository.save(adminUser);
 

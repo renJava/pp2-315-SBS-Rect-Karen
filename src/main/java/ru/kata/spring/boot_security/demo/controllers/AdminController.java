@@ -44,7 +44,6 @@ public class AdminController {
     static final String REDIRECT_ADMIN = "redirect:/admin";
 
     @PostMapping
-//    @Transactional  //Корректное добавление пользователя
     public String addUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user-create";
@@ -67,7 +66,6 @@ public class AdminController {
     }
 
     @PatchMapping("/user-update")
-//    @Transactional    //Корректное обновление пользователя
     public String updateUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user-update";

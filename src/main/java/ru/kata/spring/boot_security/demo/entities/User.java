@@ -23,24 +23,26 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotEmpty(message = "Field cannot be empty")
     @Pattern(regexp = "^[a-zA-Zа-яА-Я]+$", message = "Wrong format")
     private String name;
+
     @NotEmpty(message = "Field cannot be empty")
     @Pattern(regexp = "^[a-zA-Zа-яА-Я]+$", message = "Wrong format")
     private String lastName;
+
     @NotNull(message = "Field cannot be empty")
     @Min(value = 12, message = "Age must be above 12.")
     private Byte age;
+
     @Column(unique = true)
     @NotEmpty(message = "Field cannot be empty")
     @Pattern(regexp = ".+@.+\\..+", message = "Wrong format, please email")
     private String username;
+
     @NotEmpty(message = "Field cannot be empty")
     private String password;
-    public User() {
-        this.roles = new HashSet<>();
-    }
 
     @ManyToMany(fetch = FetchType.LAZY)
     @LazyCollection(LazyCollectionOption.EXTRA)
@@ -49,6 +51,10 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    public User() {
+        this.roles = new HashSet<>();
+    }
 
     public User(String name, String lastName, Byte age, String username, String password) {
         this.name = name;
