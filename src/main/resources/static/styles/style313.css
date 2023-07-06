@@ -1,0 +1,64 @@
+caption {white-space: nowrap;
+    font: bold 2.25em Arial, sans-serif;
+    padding: 1em;
+}
+
+table { width: 100%;
+    padding-left: 1em;
+    border: 2px solid black; margin-left: 3%;
+    /*width: 50em;*/
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+
+}
+TD, TH {
+    padding: 8px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+}
+TH {
+    background: #b0e0e6; /* Цвет фона */
+    font: bold 1.2em Arial, sans-serif;
+}
+TD {
+    font: bold 1em Arial, sans-serif;
+}
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.table-fixed-head th,
+.table-fixed-head td {
+    padding: 5px;
+    text-align: center;
+    width: 33.333vw;
+}
+
+.table-fixed-head thead {
+    background-color: #333;
+    color: #FDFDFD;
+}
+
+.table-fixed-head thead tr {
+    display: block;
+    position: relative;
+}
+
+.table-fixed-head tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: calc(100vh - 30px);
+}
+
+.table-fixed-head tbody tr:nth-child(even) {
+    background-color: #DDD;
+}
+
+p { margin-left: 2%;
+    font: bold 1.3em Arial, sans-serif;
+}
+
+div {display: inline-block;
+    width: 80%;}
+

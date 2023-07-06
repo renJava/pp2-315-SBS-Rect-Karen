@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{styles/style313.css}">
+    <title>User-Admin Table </title>
+</head>
+
+<body>
+
+<div>
+
+    <table>
+        <caption>Состав участников</caption>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Roles</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getName()}"></td>
+            <td th:text="${user.getLastName()}"></td>
+            <td th:text="${user.getAge()}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getPassword()}"></td>
+            <td th:text="${user.getRoles()}"></td>
+            <td>
+                <form method="get" th:action="@{/admin/user-update/{id}(id=${user.getId()})}">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form method="post" th:action="@{/admin/user-delete/{id}(id=${user.getId()})}">
+                    <input type="hidden" name="_method" value="DELETE"/>
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+<p><a th:href="@{/admin/user-create}">Create user</a></p>
+<p><a th:href="@{/user}">Parently Admin</a></p>
+<p><a th:href="@{/logout}">Logout</a></p>
+</body>
+
+</html>
