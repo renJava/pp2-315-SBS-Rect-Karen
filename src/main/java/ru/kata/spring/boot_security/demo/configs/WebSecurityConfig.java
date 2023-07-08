@@ -34,8 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("admin_create314.css").permitAll()
-                .antMatchers("user314.css").permitAll()
+                .antMatchers("/static/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
@@ -48,7 +47,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .logoutRequestMatcher((new AntPathRequestMatcher("/logout")))
                 .logoutSuccessUrl("/login")
-                .and().csrf().disable();
+                .and().csrf().disable()
+                .headers()
+                .contentTypeOptions()
+                .disable();
     }
 
     @Bean
