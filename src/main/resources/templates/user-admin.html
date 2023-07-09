@@ -190,7 +190,9 @@
                                                                     multiple size="2">
                                                                 <option th:each="role : ${roles}"
                                                                         th:value="${role.getId()}"
-                                                                        th:text="${role.getAuthority().replace('ROLE_', '')}">
+                                                                        th:text="${role.getAuthority().replace('ROLE_', '')}"
+                                                                        th:style="'margin-left: -6px;'">
+
                                                                 </option>
                                                             </select>
                                                         </div>
