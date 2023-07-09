@@ -286,7 +286,7 @@
                                                         <label class="form-label fw-bold">Role</label>
                                                         <div class="form-group">
                                                             <select class="col-7 mx-auto" name="roles"
-                                                                    aria-label="Disabled select example" disabled size="2" style="background-color: #E9ECEF">
+                                                                    aria-label="Disabled select example" disabled size="2" style="background-color: #E9ECEF;">
                                                                 <option th:each="role : ${user.getRoles()}"
                                                                         th:value="${role.getId()}"
                                                                         th:text="${role.getAuthority().replace('ROLE_', '')}"
