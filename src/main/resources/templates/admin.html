@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" , xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -81,7 +81,7 @@
                                             </div>
                                             <form id="formEditUser">
                                                 <div class="modal-body col-md text-center">
-                                                    <font color="red"><div id="errorEditDiv"></div></font>
+                                                    <span color="red"><div id="errorEditDiv"></div></span>
                                                     <div class="form-group text-center">
                                                         <label for="id1" class="mb-0"><b>ID</b></label>
                                                         <input th:name="id" th:type="text"
@@ -213,7 +213,7 @@
                             <h5 class="card-header">Add new user</h5>
                             <div class="card-body">
                                 <form class="offset-md-4 col-sm-4" id="formNewUser">
-                                    <font color="red"><div id="errorAddDiv"></div></font>
+                                    <span color="red"><div id="errorAddDiv"></div></span>
                                     <div class="form-group text-center">
                                         <label for="name" class="mb-0"><b>First name</b></label>
                                         <input type="text" class="form-control" id="name"

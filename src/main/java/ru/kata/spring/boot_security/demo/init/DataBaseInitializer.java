@@ -13,9 +13,9 @@ import java.util.Set;
 
 @Configuration
 public class DataBaseInitializer {
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private BCryptPasswordEncoder encoder;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final BCryptPasswordEncoder encoder;
 
     @Autowired
     public DataBaseInitializer(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder) {

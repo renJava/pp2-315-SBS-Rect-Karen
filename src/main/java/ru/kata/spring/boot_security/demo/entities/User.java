@@ -14,7 +14,6 @@ import javax.validation.constraints.Pattern;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "db315")
@@ -109,11 +108,12 @@ public class User implements UserDetails {
         this.username = username;
     }
 
+    
+    //return roles;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //return roles;
         return roles.stream().map(role ->
-                new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList());
+                new SimpleGrantedAuthority(role.getRole())).toList();
     }
 
     public String getPassword() {
