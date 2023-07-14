@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @Transactional
     @Override
     public void update(Long id, User updateUser) {
         updateUser.setId(id);
@@ -37,12 +38,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
+
+    @Transactional
     @Override
     public User saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
+    @Transactional
     @Override
     public void deleteById(Long id) {
         userRepository.deleteById(id);
@@ -67,4 +71,3 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
 }
-
